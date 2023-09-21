@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
+import '../App.css';
 
 const validate = (values) => {
   const errors = {};
@@ -34,20 +35,53 @@ const UserForm = () => {
       validate={validate}
       initialValues={{ stooge: 'Larry' }}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
           <div>
             <label>First Name</label>
-            <Field name="firstName" component="input" type="text" placeholder="First Name" />
+            <Field name="firstName" component="input" type="text" placeholder="First Name">
+              {({ input, meta }) => (
+                <div>
+                  <input
+                    {...input}
+                    type="text"
+                    placeholder="First Name"
+                    className={meta.error && meta.touched ? 'invalid-field' : ''}
+                  />
+                </div>
+              )}
+            </Field>
           </div>
 
           <div>
             <label>Last Name</label>
-            <Field name="lastName" component="input" type="text" placeholder="Last Name" />
+            <Field name="lastName" component="input" type="text" placeholder="Last Name">
+              {({ input, meta }) => (
+                <div>
+                  <input
+                    {...input}
+                    type="text"
+                    placeholder="Last Name"
+                    className={meta.error && meta.touched ? 'invalid-field' : ''}
+                  />
+                </div>
+              )}
+            </Field>
           </div>
 
           <div>
             <label>Age</label>
-            <Field name="age" component="input" type="text" placeholder="Age" />
+            <Field name="age" component="input" type="text" placeholder="Age">
+              {({ input, meta }) => (
+                <div>
+                  <input
+                    {...input}
+                    type="text"
+                    placeholder="Age"
+                    className={meta.error && meta.touched ? 'invalid-field' : ''}
+                  />
+                </div>
+              )}
+            </Field>
           </div>
 
           <div>

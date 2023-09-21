@@ -4,6 +4,9 @@ form {
   padding-block-start: 20px;
   gap: 20px;
 }
+.invalid-field {
+  border: 2px solid red;
+}
 
 label {
   display: inline-block;
